@@ -5,9 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+const COMMON = [BrowserModule, AppRoutingModule, BrowserAnimationsModule];
+const UTILS = [];
+const PAGES = [];
+const COMPONENTS = [];
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [...COMMON],
   providers: [],
   bootstrap: [AppComponent],
 })
