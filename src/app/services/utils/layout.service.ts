@@ -16,7 +16,6 @@ import { Breakpoint } from './layout.models';
 })
 export class LayoutService {
   public currentBreakpoint = Breakpoint.XSmall;
-  public contentWidth = 423;
   public onBreakpointChange: EventEmitter<Breakpoint> = new EventEmitter<Breakpoint>();
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
@@ -24,53 +23,24 @@ export class LayoutService {
       .subscribe(result => {
         if (result.breakpoints[Breakpoints.XSmall]) {
           this.currentBreakpoint = Breakpoint.XSmall;
-          this.contentWidth = 423;
           this.onBreakpointChange.next(Breakpoint.XSmall);
         }
         if (result.breakpoints[Breakpoints.Small]) {
           this.currentBreakpoint = Breakpoint.Small;
-          this.contentWidth = 704;
           this.onBreakpointChange.next(Breakpoint.Small);
         }
         if (result.breakpoints[Breakpoints.Medium]) {
           this.currentBreakpoint = Breakpoint.Medium;
-          this.contentWidth = 912;
           this.onBreakpointChange.next(Breakpoint.Medium);
         }
         if (result.breakpoints[Breakpoints.Large]) {
           this.currentBreakpoint = Breakpoint.Large;
-          this.contentWidth = 1140;
           this.onBreakpointChange.next(Breakpoint.Large);
         }
         if (result.breakpoints[Breakpoints.XLarge]) {
           this.currentBreakpoint = Breakpoint.XLarge;
-          this.contentWidth = 1280;
           this.onBreakpointChange.next(Breakpoint.XLarge);
         }
       });
-  }
-
-  scrollTo(scrollable: HTMLDivElement, target: number): void {
-    scrollable.scroll({
-      left: target,
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-
-  scrollLeft(scrollable: HTMLDivElement, pixels: number): void {
-    scrollable.scroll({
-      left: scrollable.scrollLeft - pixels,
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-
-  scrollRight(scrollable: HTMLDivElement, pixels: number): void {
-    scrollable.scroll({
-      left: scrollable.scrollLeft + pixels,
-      top: 0,
-      behavior: 'smooth',
-    });
   }
 }
