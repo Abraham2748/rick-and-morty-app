@@ -5,15 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 const COMMON = [BrowserModule, AppRoutingModule, BrowserAnimationsModule];
 const UTILS = [LayoutModule];
-const PAGES = [];
+const PAGES = [LandingComponent];
 const COMPONENTS = [];
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [...COMMON, ...UTILS],
+  imports: [...COMMON, ...UTILS, ...PAGES],
   providers: [],
   bootstrap: [AppComponent],
 })
